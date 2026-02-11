@@ -44,7 +44,5 @@ Keybindings can be customized in VS Code's Keyboard Shortcuts editor.
 
 This extension is based on [stata-exec](https://github.com/kylebarron/stata-exec) by Kyle Barron, licensed under the MIT License. All errors are my own.
 
-## Release Notes
-
-### 0.1.0
-- Initial release
+Hao Wang 
+wanghao@berkeley.edu
