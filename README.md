@@ -1,11 +1,11 @@
 # Code2Stata
 
-Run Stata code from VS Code on macOS. Sends code to the Stata GUI application via AppleScript and provides IntelliSense autocomplete for Stata commands and variables.
+Run Stata code from VS Code on macOS. Sends code to the Stata GUI application and provides IntelliSense autocomplete for Stata commands and variables.
 
 ## Features
 
-- **Run Code**: Send selected code or the entire file to Stata for execution
-  - If text is selected, the selection is expanded to full lines and sent
+- **Run Code**: Send selected code or the entire file to Stata
+  - If text is selected, run the line of the selected text
   - If nothing is selected, the entire file is sent
   - Available via keyboard shortcut, editor title button, or right-click context menu
 - **IntelliSense**: Autocomplete suggestions for built-in Stata commands, user-defined commands, and variable names from Stata's memory
@@ -17,16 +17,16 @@ Run Stata code from VS Code on macOS. Sends code to the Stata GUI application vi
 ## Requirements
 
 - **macOS**
-- **Stata** (BE, SE, or MP) installed on your Mac
+- **Stata** (BE, SE, or MP; &ge; 17) installed on your Mac
 - A VS Code language extension that provides the `stata` language ID (e.g., [Stata Enhanced](https://marketplace.visualstudio.com/items?itemName=kylebarron.stata-enhanced))
 
 ## Keyboard Shortcuts
 
-| Shortcut | Command |
-|---|---|
-| `Shift+Cmd+A` | Run Code |
+| Shortcut | Command | Description |
+|---|---|---|
+| `Shift+Cmd+A` | Run Code | Run the line of selected code or the entire file |
 
-Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd+P` opens the Command Palette. Type "Open keyboard shortcuts" and select "Preferences: Open Keyboard Shortcuts (JSON)".
+Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd+P` opens the Command Palette. Type "Open keyboard shortcuts" and select "Preferences: Open Keyboard Shortcuts".
 
 ## Extension Settings
 
@@ -46,5 +46,4 @@ Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd
 
 This extension is based on [stata-exec](https://github.com/kylebarron/stata-exec) by Kyle Barron, licensed under the MIT License. All errors are my own.
 
-Hao Wang 
-wanghao@berkeley.edu
+Hao Wang | wanghao@berkeley.edu
