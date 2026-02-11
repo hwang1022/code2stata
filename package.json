@@ -2,7 +2,7 @@
   "name": "code2stata",
   "displayName": "Code2Stata",
   "description": "Run Stata code from VS Code on macOS",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "hwang",
   "icon": "images/icon.png",
   "repository": {
