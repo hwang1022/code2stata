@@ -1,42 +1,139 @@
 {
-  "name": "stata-exec",
-  "main": "./lib/main.js",
-  "version": "1.8.6",
-  "description": "Send code to Stata from Atom",
-  "activationCommands": {
-    "atom-text-editor": [
-      "stata-exec:run",
-      "stata-exec:run-all",
-      "stata-exec:run-and-move-down",
-      "stata-exec:run-batch",
-      "stata-exec:run-paragraph",
-      "stata-exec:run-previous-command",
-      "stata-exec:run-program",
-      "stata-exec:set-working-directory"
-    ]
+  "name": "code2stata",
+  "displayName": "Code2Stata",
+  "description": "Run Stata code from VS Code on macOS",
+  "version": "0.1.0",
+  "publisher": "hwang",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.106.0"
   },
-  "repository": "https://github.com/kylebarron/stata-exec",
-  "bugs": {
-    "url": "https://github.com/kylebarron/stata-exec/issues"
-  },
+  "categories": [
+    "Other"
+  ],
   "keywords": [
-    "Stata"
+    "Stata",
+    "code2stata"
   ],
   "license": "MIT",
-  "engines": {
-    "atom": ">1.0.0"
-  },
-  "package-deps": [
-    "language-stata"
+  "activationEvents": [
+    "onLanguage:stata"
   ],
-  "optionalDependencies": {
-    "winax": "1.0.13"
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "code2stata.runCode",
+        "title": "Code2Stata: Run Code",
+        "icon": "$(play)"
+      },
+      {
+        "command": "code2stata.getVariables",
+        "title": "Code2Stata: Get Variable Names",
+        "icon": "$(list-unordered)"
+      }
+    ],
+    "configuration": {
+      "title": "Code2Stata",
+      "properties": {
+        "code2stata.whichApp": {
+          "type": "string",
+          "enum": [
+            "stataBE",
+            "stataSE",
+            "stataMP"
+          ],
+          "default": "stataSE",
+          "description": "Which Stata application to send code to."
+        },
+        "code2stata.focusWindow": {
+          "type": "boolean",
+          "default": true,
+          "description": "Bring Stata to the foreground when sending code."
+        },
+        "code2stata.autoLaunch": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically launch Stata if it is not running."
+        },
+        "code2stata.autoRetrieveVariables": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically retrieve variable names from Stata on a timer."
+        },
+        "code2stata.autoRetrieveInterval": {
+          "type": "number",
+          "default": 30,
+          "minimum": 5,
+          "description": "Seconds between automatic variable name retrievals. Minimum 5."
+        },
+        "code2stata.retrieveTimeout": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "description": "Minutes to wait for Stata to become free before timing out."
+        },
+        "code2stata.userCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional Stata commands to include in IntelliSense autocomplete."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "code2stata.runCode",
+        "key": "shift+ctrl+a",
+        "mac": "shift+cmd+a",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == stata",
+          "command": "code2stata.runCode",
+          "group": "code2stata"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "code2stata.getVariables",
+          "group": "code2stata"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "resourceLangId == stata",
+          "command": "code2stata.runCode",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == stata",
+          "command": "code2stata.getVariables",
+          "group": "navigation@2"
+        }
+      ]
+    }
   },
-  "dependencies": {
-    "atom-package-deps": "4.6.0",
-    "delay": "^2.0.0",
-    "escape-string-applescript": "^2.0.0",
-    "path": "0.12.7",
-    "run-applescript": "^3.2.0"
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.106.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.54.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
   }
 }
