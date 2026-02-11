@@ -26,9 +26,11 @@ Run Stata code from VS Code on macOS. Sends code to the Stata GUI application vi
 |---|---|
 | `Shift+Cmd+A` | Run Code |
 
-Keybindings can be customized in VS Code's Keyboard Shortcuts editor.
+Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd+P` opens the Command Palette. Type "Open keyboard shortcuts" and select "Preferences: Open Keyboard Shortcuts (JSON)".
 
 ## Extension Settings
+
+`Cmd+,` opens the Settings editor. Search for "code2stata" to find the extension settings.
 
 | Setting | Default | Description |
 |---|---|---|

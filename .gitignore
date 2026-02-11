@@ -1,4 +1,8 @@
 .DS_Store
-npm-debug.log
 node_modules
-.ropeproject
+out
+dist
+node_modules
+.vscode-test/
+*.vsix
+eslint.config.mjs
