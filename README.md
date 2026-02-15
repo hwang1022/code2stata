@@ -1,6 +1,8 @@
 # Code2Stata
 
-Run Stata code from VS Code on macOS. Sends code to the Stata GUI application and provides IntelliSense autocomplete for Stata commands and variables.
+Run code on Stata GUI from VS Code on macOS. Sends code to the Stata GUI application and provides IntelliSense autocomplete for Stata commands and variables.
+
+**Notes before use:** Make sure to select the correct Stata variant in the extension settings. The default is `stataSE`, but you may need to change it to `stataBE` or `stataMP` if you have a different variant installed.
 
 ## Features
 
@@ -13,6 +15,15 @@ Run Stata code from VS Code on macOS. Sends code to the Stata GUI application an
   - Manual retrieval via button
   - Automatic retrieval after running code
   - Timed auto-retrieval on a configurable interval
+
+## Demo
+
+- **Run Code**
+![Demo](images/run_code.gif)
+
+- **IntelliSense**:
+![Demo](images/var_name.gif)
+
 
 ## Requirements
 
@@ -30,7 +41,7 @@ Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd
 
 ## Extension Settings
 
-`Cmd+,` opens the Settings editor. Search for "code2stata" to find the extension settings.
+`Cmd+,` opens the Settings editor. Search for "code2stata" to find the extension settings. Alternatively, in the Extensions sidebar, click on the gear icon on the right of the extension card and select "Settings".
 
 | Setting | Default | Description |
 |---|---|---|
@@ -44,6 +55,6 @@ Keybindings can be customized in VS Code's Keyboard Shortcuts editor. `Shift+Cmd
 
 ## Acknowledgments
 
-This extension is based on [stata-exec](https://github.com/kylebarron/stata-exec) by Kyle Barron, licensed under the MIT License. All errors are my own.
+This extension is based on [stata-exec](https://github.com/kylebarron/stata-exec) by Kyle Barron under the MIT License, and uses code from [stataRun](https://github.com/poidstotal/stataRun) by PoidStotal. All errors are my own.
 
 Hao Wang | wanghao@berkeley.edu

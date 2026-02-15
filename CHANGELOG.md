@@ -11,3 +11,7 @@ All notable changes to the "code2stata" extension will be documented in this fil
 
 ## [0.1.2] - 2026-02-11
 - Improved documentation
+
+## [0.1.3] - 2026-02-15
+- Improved error handling
+- Improved documentation
